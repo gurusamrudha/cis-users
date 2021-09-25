@@ -1,0 +1,32 @@
+@import '../../styles/variables.scss';
+
+.master-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    padding: 2rem;
+    height: 90vh;
+    width: 100vw;
+
+    &__list {
+        flex-grow: 3;
+        color: map-get($brandColors, black);;
+        
+        margin-right: .5rem;
+        width: 60vw;
+    }
+
+    &__detail {
+        flex-grow: 1;
+        flex-shrink: 0;
+        min-width: 30vw;
+        height: 51.5rem;
+
+        background-color: map-get($brandColors, white);
+
+        border: .3rem solid map-get($brandColors, gray-6);
+    }
+}
+

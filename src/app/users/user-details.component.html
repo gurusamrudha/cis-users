@@ -1,0 +1,109 @@
+<div class="detail-view">
+  <div class="detail-view__actions" role="Detail view header action buttons" i18n-role aria-label="Detail view header action buttons" i18n-aria-label>
+    <ng-container *ngIf="userDetails?.userId; else noSelectedUser">
+      <app-cis-button 
+        (click)="resetUserForm()" 
+        id="form-reset-button" i18n> Reset Form
+      </app-cis-button>
+      <app-cis-button 
+        (click)="removeUser()"
+        id="delete-user-button" i18n> Delete user
+      </app-cis-button>
+    </ng-container> 
+  </div>
+
+  <div class="detail-view__content" >
+    <form [formGroup]="form" class="form-container m-3">
+      <!-- UUID -->
+      <div class="form-group">
+        <label for="inputUuid" i18n>User Id</label>
+        <div class="input-group">
+          <input  type="text"
+                  id="inputUuid"
+                  class="form-control"
+                  placeholder="Users unique Id" i18n-placeholder
+                  aria-label="User Unique Identification number" i18n-aria-label
+                  formControlName="userId">
+            
+          <div class="input-group-append cux-generate" [ngClass]="this.form.get('userId').value ? 'cux-generate__disable' : ''" (click)="generateNewId()">
+            <span class="input-group-text" i18n>Generate</span>
+          </div>
+        </div>
+
+        <small  id="uuid-HelpText"
+                [ngClass]="(form.get('userId').invalid && form.get('userId').touched) ? 'text-danger' : 'text-muted'"
+                class="form-text">
+                <ng-container *ngIf="!(form.get('userId').invalid && form.get('userId').touched);else nameNotValid"
+                              i18n>Click Generate to create a new User Unique ID
+                </ng-container>
+                <ng-template #nameNotValid i18n>User ID is a required field!</ng-template>
+        </small>
+      </div>
+      <!-- /UUID -->
+      
+
+      <!--Name-->
+      <div class="form-group">
+        <label for="inputUserName" i18n>User Name</label>
+        <input type="text"
+                class="form-control"
+                id="inputUserName"
+                placeholder="demoName10" i18n-placeholder
+                aria-label="User name field" i18n-aria-label
+                formControlName="userName"
+                [class.is-invalid]="form.get('userName').invalid && form.get('userName').touched">
+        <small id="userName-HelpText"
+                [ngClass]="(form.get('userName').invalid && form.get('userName').touched) ? 'text-danger' : 'text-muted'"
+                class="form-text">
+                <ng-container *ngIf="!(form.get('userName').invalid && form.get('userName').touched);else nameNotValid"
+                              i18n>Enter an Username for the profile
+                </ng-container>
+                <ng-template #nameNotValid i18n>UserName is a required field!</ng-template>
+        </small>
+      </div>
+      <!--/Name-->
+
+      <!--Email-->
+      <div class="form-group">
+        <label for="inputEmail" i18n>Email</label>
+        <input type="email"
+                class="form-control"
+                id="inputEmail"
+                placeholder="Email" i18n-placeholder
+                formControlName="emailAddress" email
+                aria-label="email address field" i18n-aria-label
+                [class.is-invalid]="form.get('emailAddress').invalid && form.get('emailAddress').touched">
+        <small id="emailHelpText"
+                [ngClass]="(form.get('emailAddress').invalid && form.get('emailAddress').touched) ? 'text-danger' : 'text-muted'"
+                class="form-text">
+                <ng-container *ngIf="!(form.get('emailAddress').invalid && form.get('emailAddress').touched);else emailNotValid"
+                              i18n>We'll never share your email with anyone else.
+                </ng-container>
+                <ng-template #emailNotValid i18n>Please enter valid Email Id!</ng-template>
+        </small>
+      </div>
+      <!--/Email-->
+
+      <!--Phone-->
+      <div class="form-group">
+        <label for="inputPhone" i18n>Phone</label>
+        <input type="number"
+                class="form-control"
+                id="inputPhone"
+                placeholder="Phone" i18n-placeholder
+                aria-label="Phone number field" i18n-aria-label
+                formControlName="phone">
+      </div>
+      <!--/Phone-->
+
+      <app-cis-button #saveButton [disabled]="form.invalid || !form.dirty"
+                  (click)="submitUser()">
+        <span i18n>Save</span>
+      </app-cis-button>
+    </form>
+  </div>
+</div>
+
+<ng-template #noSelectedUser>
+  <h4 class="detail-view__header" i18n>User not Selected, Add new</h4>
+</ng-template>

@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.detail-view {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+
+    &__actions {
+        height: 5rem;
+        background-color: map-get($brandColors, gray-3);
+        display: flex;
+        align-items: center;
+
+        & > * {
+            margin: .8rem;
+        }
+    }
+
+    &__header{
+        color: aliceblue;
+    }
+}
+
+.form-control::placeholder {
+    opacity: .5;
+}
+
+.cux-generate {
+    cursor: pointer;
+
+    &__disable {
+        pointer-events: none;
+    }
+}

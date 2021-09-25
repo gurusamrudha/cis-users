@@ -1,0 +1,47 @@
+.master-header {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: map-get($map: $brandColors, $key: white);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+        margin-left: 3rem;
+
+        height: 5.5rem;
+        width: 9.5rem;
+    }
+}
+
+.master-nav {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+
+    & > * {
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        
+        border: transparent 2px solid;
+    }
+
+    & > *:hover {
+        background-color: map-get($brandColors, grey-7);
+        border-bottom: map-get($brandColors, blue) 2px solid;
+    }
+
+    &__info {
+        font-size: 1.85rem;
+        font-weight: 600;
+
+        &--active {
+            border-bottom: map-get($brandColors,blue) 2px solid;
+        }
+    }
+
+}

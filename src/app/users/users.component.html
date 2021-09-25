@@ -1,0 +1,22 @@
+<div class="master-container">
+  <!--List View-->
+  <div class="master-container__list"> 
+    <app-cis-datatable 
+          [rowData]="usersList$ | async"
+          [columnData]="columnHeaders"
+          [resetTable]="reset"
+          
+          (rowClick)="onRowClick($event)">
+    </app-cis-datatable>
+  </div>
+  <!--/List View-->
+
+  <!-- Detail View -->
+  <div class="master-container__detail">
+    <app-user-details
+      [userDetails]="userDetails$ | async"
+      (resetTable)="resetTable($event)">
+    </app-user-details>
+  </div>
+  <!-- /Detail View -->
+</div>
