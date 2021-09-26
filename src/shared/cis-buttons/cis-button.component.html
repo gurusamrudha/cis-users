@@ -1,5 +1,7 @@
 <button mat-raised-button 
         [disabled]="disabled"
-        role="button" i18n-role>
+        role="button" i18n-role
+        class="cux-button"
+        [ngClass]="[state | buttonState]">
         <ng-content></ng-content>
 </button>

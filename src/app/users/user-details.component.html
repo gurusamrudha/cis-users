@@ -1,11 +1,13 @@
 <div class="detail-view">
   <div class="detail-view__actions" role="Detail view header action buttons" i18n-role aria-label="Detail view header action buttons" i18n-aria-label>
     <ng-container *ngIf="userDetails?.userId; else noSelectedUser">
-      <app-cis-button 
+      <app-cis-button
+        state='warning'
         (click)="resetUserForm()" 
         id="form-reset-button" i18n> Reset Form
       </app-cis-button>
-      <app-cis-button 
+      <app-cis-button
+        state='danger'
         (click)="removeUser()"
         id="delete-user-button" i18n> Delete user
       </app-cis-button>
@@ -96,7 +98,7 @@
       </div>
       <!--/Phone-->
 
-      <app-cis-button #saveButton [disabled]="form.invalid || !form.dirty"
+      <app-cis-button #saveButton [disabled]="form.invalid || !form.dirty" state='primary'
                   (click)="submitUser()">
         <span i18n>Save</span>
       </app-cis-button>

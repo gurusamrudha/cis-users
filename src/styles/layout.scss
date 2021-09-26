@@ -12,6 +12,12 @@
 
         height: 5.5rem;
         width: 9.5rem;
+
+        @include respond(tab-land) {
+            margin-left: 1.5rem;
+            height: 3.5rem;
+            width: 7.5rem;
+        }
     }
 }
 

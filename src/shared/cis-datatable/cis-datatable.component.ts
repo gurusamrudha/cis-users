@@ -1,12 +1,13 @@
 // Angular imports
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 // NGX library imports
 import { DatatableComponent } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'app-cis-datatable',
-  templateUrl: './cis-datatable.component.html'
+  templateUrl: './cis-datatable.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CisDatatableComponent  {
   @ViewChild(DatatableComponent) table: DatatableComponent;
@@ -30,6 +31,10 @@ export class CisDatatableComponent  {
       this.reset();
     }
   }
+
+  /** Horizontal Scroll bar for not overlapping on mobile device */
+  @Input()
+  horizontalScrollBar = false;
 
   /** Emits the single-selected entity when one is selected or deselcted. */
   @Output()

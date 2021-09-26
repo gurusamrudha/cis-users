@@ -7,10 +7,17 @@
 
 
 /* You can add global styles to this file, and also import other style files */
+@import './mixins';
 @import './variables.scss';
 @import './base.scss';
 @import './layout.scss';
+@import './buttons.scss';
 
 .ngx-datatable.material .datatable-header .datatable-header-cell {
     font-size: 2rem !important;
+    cursor: pointer;
+
+    @include respond(tab-land) {
+        font-size: 1.5rem !important;
+    }
 }

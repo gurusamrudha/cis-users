@@ -5,6 +5,7 @@
           [rowData]="usersList$ | async"
           [columnData]="columnHeaders"
           [resetTable]="reset"
+          [horizontalScrollBar]="true"
           
           (rowClick)="onRowClick($event)">
     </app-cis-datatable>

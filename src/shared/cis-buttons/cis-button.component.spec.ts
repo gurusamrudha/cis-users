@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CisButtonStatePipe } from './cis-button-state.pipe';
 
 import { CisButtonComponent } from './cis-button.component';
 
@@ -8,7 +9,7 @@ describe('CisButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CisButtonComponent ]
+      declarations: [ CisButtonComponent, CisButtonStatePipe ]
     })
     .compileComponents();
   });

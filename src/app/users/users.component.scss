@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins';
 
 .master-container {
     display: flex;
@@ -16,6 +17,10 @@
         
         margin-right: .5rem;
         width: 60vw;
+
+        @include respond(tab-land) {
+            width: 100vw;
+        }
     }
 
     &__detail {
@@ -27,6 +32,10 @@
         background-color: map-get($brandColors, white);
 
         border: .3rem solid map-get($brandColors, gray-6);
+
+        @include respond(tab-land) {
+            width: 100%;
+        }
     }
 }
 

@@ -14,7 +14,7 @@ import { UsersModel } from 'src/models/users.model';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.scss']
+  styleUrls: ['./user-details.component.scss'],
 })
 export class UserDetailsComponent implements OnInit {
   form: FormGroup;
@@ -71,7 +71,7 @@ export class UserDetailsComponent implements OnInit {
    * Updates the form if User is being selected and add the new User if not.
    */
   submitUser(): void {
-    if (this.userDetails) {
+    if (this.userDetails && this.userDetails?.userId) {
       this.store.dispatch(new actions.UpdateUserDetailsAction({userDetails: this.form.getRawValue() as UsersModel}));
     } else {
       this.store.dispatch(new actions.AddUserAction({userDetails: this.form.getRawValue() as UsersModel}));

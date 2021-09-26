@@ -41,6 +41,10 @@ export class ClearUserDetailsAction implements Action {
     readonly type = CLEAR_USER_DETAILS;
 }
 
+/**
+ * Commenting this code to show what it looks like if it was a http call and
+ * we use loading spinner or error message on each HTTP calls.
+ */
 
 // export class LoadUsersListCompleteAction implements Action {
 //     readonly type = LOAD_USERS_LIST_COMPLETE;
